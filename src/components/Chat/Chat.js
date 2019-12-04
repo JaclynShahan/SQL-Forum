@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 
 class Chat extends Component {
   constructor () {
