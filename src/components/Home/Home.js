@@ -7,9 +7,12 @@ class Home extends Component {
     super()
     this.state = {}
   }
-
+//Can make this screen an "about" page explaining what the site is
   render () {
-    return <div>HOME</div>
+    return <div>
+        
+       HOME
+       </div>
   }
 }
 
