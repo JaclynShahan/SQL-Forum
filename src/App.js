@@ -12,7 +12,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <div>
+        <div className="topnav">
           <Link to='/'>Home</Link>
           <Link to='/login'>Login</Link>
           <Link to='/forum'>Forum</Link>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Icon, Input, Button } from 'antd'
 import './Login.css'
+import LoginDrawer from './LoginDrawer';
 
 class Login extends Component {
   constructor () {
@@ -48,8 +49,9 @@ class Login extends Component {
             <Button className='loginbutton'>Login</Button>
             <span className='signup'>OR</span>
             <span className='signup'>
-              <a href='a'>Create Account</a>
+              <button onClick={() => this.props.showDrawer(true)}>Create Account {""}</button>
             </span>
+            <LoginDrawer />
             <br />
             <br />
             <Input type='checkbox' />
@@ -88,6 +90,12 @@ const mapDispatchToProps = dispatch => ({
       type: 'USER_AUTH',
       payload: val
     })
+  },
+  showDrawer (val) {
+      dispatch({
+          type: 'SHOW_DRAWER',
+          payload: val
+      })
   }
 })
 export default connect(
