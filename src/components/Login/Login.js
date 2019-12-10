@@ -49,7 +49,7 @@ class Login extends Component {
           <div className='container'>
             <Button className='loginbutton'>Login</Button>
             <span className='signup'>OR</span>
-            <LoginDrawer  />
+            <LoginDrawer  /> 
             <br />
             <br />
             <Input type='checkbox' />
@@ -60,8 +60,9 @@ class Login extends Component {
               Forgot <a href='#'>Password?</a>
             </span>
           </div>
+
         </div>
-            
+           
       </div>
     )
   }

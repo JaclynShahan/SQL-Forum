@@ -29,46 +29,57 @@ class LoginDrawer extends Component {
     render() {
         console.log(this.props.addUser.showDrawer)
         return(
-            <div>
+            <div >
             <span className='signup'>
               <button onClick={() => this.props.showDrawer(true)}>Create Account</button>
             </span>
            <Drawer
+           className="signupDrawer"
            placement="right"
            onOk={this.onSave}
            title="Create an Account"
-           closable={false}
+        //    closable={false}
             visible={this.props.addUser.showDrawer}
            onClose={() => this.props.showDrawer(false)}
            destroyOnClose={true}
            >
+           <span>First Name:</span>
             <Input 
+            className="drawerInput"
             placeholder="First Name"
             onChange={e => this.props.newFirstName(e)}
             value={this.props.addUser.firstname}
             />
+            <span>Last Name:</span>
             <Input 
+            className="drawerInput"
             placeholder="Last Name"
             onChange={e => this.props.newLastName(e)}
             value={this.props.addUser.lastname}
             />
-            <Input 
+            <span>Email:</span>
+            <Input
+            className="drawerInput" 
             placeholder="Email"
             onChange={e => this.props.newEmail(e)}
             value={this.props.addUser.email}
             />
+            <span>Create Username:</span>
             <Input 
+            className="drawerInput"
             placeholder="Username"
             onChange={e => this.props.newUsername(e)}
             value={this.props.addUser.username}
             />
+            <span>Create Password:</span>
             <Input 
+            className="drawerInput"
             placeholder="Password"
             onChange={e => this.props.newPassword(e)}
             value={this.props.addUser.password}
             />
-            <Button>Submit</Button>
-            <Button onClick={() => this.props.showDrawer(false)}>Cancel</Button>
+            <Button className="drawerButton">Submit</Button>
+            <Button className="cancelButton" onClick={() => this.props.showDrawer(false)}>Cancel</Button>
            </Drawer>
            </div>
         )
