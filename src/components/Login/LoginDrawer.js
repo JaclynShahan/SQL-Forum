@@ -8,19 +8,39 @@ class LoginDrawer extends Component {
     constructor() {
         super()
         this.state = {
-
+            
         }
     }
 
+ onSave = () => {
+     Axios.post(`/api/createUser`, {
+         firstname: this.props.addUser.firstname,
+         lastname: this.props.addUser.lastname,
+         email: this.props.addUser.email,
+         username: this.props.addUser.username,
+         password: this.props.addUser.password
+     }).then(resp => {
+        //  e.preventDefault()
+         this.props.showDrawer(false)
+         this.props.clearInputs()
+         console.log("Response:", resp)
+     })
+ }
     render() {
-        console.log(this.props.login.showDrawer)
+        console.log(this.props.addUser.showDrawer)
         return(
+            <div>
+            <span className='signup'>
+              <button onClick={() => this.props.showDrawer(true)}>Create Account</button>
+            </span>
            <Drawer
-           title="Create an Account"
            placement="right"
-           //closable={false}
-           visible={this.props.login.showDrawer}
+           onOk={this.onSave}
+           title="Create an Account"
+           closable={false}
+            visible={this.props.addUser.showDrawer}
            onClose={() => this.props.showDrawer(false)}
+           destroyOnClose={true}
            >
             <Input 
             placeholder="First Name"
@@ -50,6 +70,7 @@ class LoginDrawer extends Component {
             <Button>Submit</Button>
             <Button onClick={() => this.props.showDrawer(false)}>Cancel</Button>
            </Drawer>
+           </div>
         )
     }
 }
@@ -95,6 +116,12 @@ const mapDispatchToProps = dispatch => ({
         dispatch({
             type: 'SET_NEW_PASSWORD',
             payload: e.target.value
+        })
+    },
+    clearInputs () {
+        dispatch({
+            type: "CLEAR_INPUTS",
+            payload: ""
         })
     }
 })

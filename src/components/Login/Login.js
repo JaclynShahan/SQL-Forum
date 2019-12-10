@@ -21,13 +21,14 @@ class Login extends Component {
     }).then(resp => {
       console.log(resp.data)
       this.props.setAuthentication(resp.data)
+    
     })
   }
 
   render () {
     return (
       <div>
-        <form className='form-content'>
+        <div className='form-content'>
           <img
             className='imgcontainer'
             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-T5_xZRRed_LyA4eS3k9T9iVYyYRs0QJeAZFu7EEIleP9sznDtA&s'
@@ -48,10 +49,7 @@ class Login extends Component {
           <div className='container'>
             <Button className='loginbutton'>Login</Button>
             <span className='signup'>OR</span>
-            <span className='signup'>
-              <button onClick={() => this.props.showDrawer(true)}>Create Account {""}</button>
-            </span>
-            <LoginDrawer />
+            <LoginDrawer  />
             <br />
             <br />
             <Input type='checkbox' />
@@ -62,7 +60,8 @@ class Login extends Component {
               Forgot <a href='#'>Password?</a>
             </span>
           </div>
-        </form>
+        </div>
+            
       </div>
     )
   }
@@ -91,12 +90,7 @@ const mapDispatchToProps = dispatch => ({
       payload: val
     })
   },
-  showDrawer (val) {
-      dispatch({
-          type: 'SHOW_DRAWER',
-          payload: val
-      })
-  }
+
 })
 export default connect(
   mapStateToProps,

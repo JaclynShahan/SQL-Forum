@@ -7,7 +7,9 @@ const initialState = {
     username: '',
     password: '',
     user: {},
-    authentication: false
+    authentication: false,
+    showDrawer: false,
+    clearInputs: ''
 }
 
 export default function reducer (state = initialState, action) {
@@ -26,6 +28,10 @@ export default function reducer (state = initialState, action) {
         return { ...tempState, password: action.payload }
       case 'NEW_USER_AUTH':
         return { ...tempState, authentication: action.payload }
+        case 'SHOW_DRAWER':
+        return {...tempState, showDrawer: action.payload}
+        case 'CLEAR_INPUTS':
+        return {...tempState, clearInputs: action.payload}
       case GET_USER + '_PENDING':
         return Object.assign({}, state, { isLoading: true })
       case GET_USER + '_FULFILLED':

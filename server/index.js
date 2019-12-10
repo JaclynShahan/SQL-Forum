@@ -23,6 +23,7 @@ app.get('/api/login', controller.loginUser)
 app.put('/api/logout', controller.logoutUser)
 const port = 3434
 
+
 app.post(`/api/verifyUser`, (req, res) => {
   console.log('request received')
   const { username, password } = req.body
@@ -34,7 +35,15 @@ app.post(`/api/verifyUser`, (req, res) => {
     res.status(200).send(false)
   }
 })
-
+app.post(`/api/createUser`, (req, res) => {
+    const { firstname, lastname, email, username, password} = req.body
+    console.log('Request received', firstname, lastname, email, username, password)
+    console.log(req.body)
+    const dbInstance = req.app.get('db')
+    dbInstance.createUser(firstname, lastname, email, username, password).then(() => {
+      app.get(`/api/login`, controller.loginUser)
+    })
+  })
 massive(process.env.connectionString).then(db => {
   app.set('db', db)
   app.listen(3434, () => {
