@@ -50,15 +50,7 @@ class Login extends Component {
             <Button className='loginbutton'>Login</Button>
             <span className='signup'>OR</span>
             <LoginDrawer  /> 
-            <br />
-            <br />
-            <Input type='checkbox' />
-            <span className='spacing'>Remember Me</span>
-          </div>
-          <div className='container'>
-            <span className='psw'>
-              Forgot <a href='#'>Password?</a>
-            </span>
+         
           </div>
 
         </div>
@@ -91,6 +83,7 @@ const mapDispatchToProps = dispatch => ({
       payload: val
     })
   },
+
 
 })
 export default connect(
