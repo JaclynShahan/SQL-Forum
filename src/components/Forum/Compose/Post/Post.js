@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Icon, Button, Badge, Avatar } from 'antd'
+import Axios from 'axios'
 
 class Post extends Component {
   constructor () {
