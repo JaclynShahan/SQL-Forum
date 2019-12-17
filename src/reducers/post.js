@@ -1,10 +1,12 @@
 const initialState = {
     searchPosts: [],
    selectedPost: {},
-   newPost: []
+   newPost: [],
+   editModal: false
 }
 
 export default function reducer (state = initialState, action) {
+    let tempState = state
     switch (action.type) {
         case 'SET_POST':
       return { ...state, user: action.payload }
@@ -17,7 +19,8 @@ export default function reducer (state = initialState, action) {
       return { ...state, selectedPost: action.payload }
     case 'SEARCH_POSTS':
       return { ...state, searchPosts: action.payload }
-  
+    case 'EDIT_MODAL' :
+    return {...state, editModal: action.payload}
     }
-    return state
+    return tempState
 }
