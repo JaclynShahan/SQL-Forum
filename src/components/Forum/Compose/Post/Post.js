@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Icon, Button, Badge, Avatar } from 'antd'
 import Axios from 'axios'
+import EditPost from './Edit/EditPost'
 
 class Post extends Component {
   constructor () {
@@ -123,9 +124,9 @@ class Post extends Component {
           <span>{this.props.subject}</span>
         </div>
 
-        {/* <div>
+        <div>
           {editing ? (
-            <Edit
+            <EditPost
               text={text}
               id={id}
               hideEdit={this.hideEdit}
@@ -134,7 +135,7 @@ class Post extends Component {
           ) : (
             <span>{text}</span>
           )}
-        </div> */}
+        </div>
         <div className='Post__user-controls'>
           <div className='icons'>
             <Badge count={this.props.post.likes.length}>
