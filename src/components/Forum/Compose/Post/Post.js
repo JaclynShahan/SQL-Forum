@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Icon, Button, Badge, Avatar } from 'antd'
 import Axios from 'axios'
 import EditPost from './Edit/EditPost'
+import Comment from './Comment/Comment'
 
 class Post extends Component {
   constructor () {
@@ -14,7 +15,7 @@ class Post extends Component {
       mehs: [],
       dislikes: [],
       count: 0,
-      show: true
+      visible: true
     }
     this.hideEdit = this.hideEdit.bind(this)
 
@@ -214,6 +215,11 @@ class Post extends Component {
                 style={{ fontSize: '28px' }}
               />
             </Badge>
+            <Comment
+              visible={this.state.visible}
+              onClose={this.onClose}
+              updateCommentsFn={this.props.updateComments}
+            />
           </div>
         </div>
       </section>
