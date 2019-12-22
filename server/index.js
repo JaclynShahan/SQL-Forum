@@ -4,9 +4,17 @@ const massive = require('massive')
 const { json } = require('body-parser')
 const session = require('express-session')
 const axios = require('axios')
+const socketIo = require('socket.io')
+const index = require("../routes/index")
 require('dotenv').config()
 
 const controller = require(`${__dirname}/controller/controller`)
+const server = http.createServer(app);
+
+const io = socketIo(server);
+app.use(index(io));
+
+let messages = [];
 
 const app = express()
 app.use(cors())
@@ -18,7 +26,28 @@ app.use(
     saveUninitialized: true
   })
 )
+io.on("connection", socket => { // each socket that "connects", 
+        //is a unique connection from a individual's web browser
+    console.log("New Client Connected");
+    socket.emit('msgs', messages) // when user connects, automatically emits msgs
+    // socket.on("event", data => {
+        // you have data now
+        // you then do something with the data
+        // in here, you can also emit after the "something" has been done with data
+    // })
+    
+    socket.on('send_message', incomingMessage => {
+        // console.log('incumming msg: ', incomingMessage)
+        messages.push(incomingMessage);
+        socket.emit('msgs', messages)
 
+    })
+
+
+    socket.on("disconnect", () => { // disconnect = user closes browser or loses web connection
+        console.log("Client Disconnected");
+    })
+})
 app.get('/api/login', controller.loginUser)
 app.put('/api/logout', controller.logoutUser)
 const port = 3434
