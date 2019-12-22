@@ -28,17 +28,17 @@ class ForumHeader extends Component {
           )
         return(
             
-      <section className='Header__parent'>
-        <section className='Header__content'>
-          <div className='Header__company-info'>
+      <section className='HeaderParent'>
+        <section className='HeaderContent'>
+          <div className='HeaderCompanyInfo'>
             <Icon type='robot' style={styles} />
             <span>Dev Talk</span>
           </div>
 
-          <div className='Header__right'>
+          <div className='HeaderRight'>
            
 
-            <div className='Header__profile'>
+            <div className='HeaderProfile'>
               <Popover className='sign_out' content={content}>
                 <Avatar src='https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_960_720.png' />
               </Popover>

@@ -26,8 +26,9 @@ class Login extends Component {
   }
 
   render () {
+      console.log(this.props.login)
     return (
-      <div>
+      <div className="loginBackground">
         <div className='form-content'>
           <img
             className='imgcontainer'
@@ -48,6 +49,7 @@ class Login extends Component {
           </div>
           <div className='container'>
             <Button className='loginbutton'>Login</Button>
+            {this.props.login.user.username ? '' : <Redirect to='/login' />}
             <span className='signup'>OR</span>
             <LoginDrawer  /> 
          

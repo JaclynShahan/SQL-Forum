@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Avatar, Input, Button} from 'antd';
 import Axios from 'axios'
+import './Compose.css'
 
 class Compose extends Component {
     constructor () {
@@ -52,25 +53,27 @@ class Compose extends Component {
     render() {
         const {text, subject} = this.state;
         return(
-            <section>
-            <div>
-            <div>
+            <section className="ComposeParent">
+            <div className="ComposeTop">
+            <div className="ComposeProfilePicture">
             <Avatar src='https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_960_720.png' />
             </div>
             <Input
+            className="SubjectInput"
             placeholder='Subject'
             value={subject}
             onChange={e => this.updateSubject(e.target.value)}
           />
 
           <Input
+          className="ComposeInput"
             placeholder="What's on your mind?"
             value={text}
             onChange={e => this.updateText(e.target.value)}
           />
             </div>
-            <div>
-          <Button onClick={e => this.makePost(e)}>
+            <div className="ComposeButtom">
+          <Button className="ComposeButton" onClick={e => this.makePost(e)}>
             Update
           </Button>
         </div>

@@ -1,0 +1,31 @@
+@import "~antd/dist/antd.css";
+.AppParent {
+  width: 100%;
+  min-width: 1000px;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #9badce,
+    #6a97bb,
+    #6ea4bd,
+    #72a1cc,
+    #7eb4d8,
+    #6d97b1,
+    #76a5ca,
+    #7bb7d3,
+    #82b4c0,
+    #8c9bc4,
+    #88c3e6,
+    #6ebad1
+  );
+}
+
+.AppContent {
+  width: 1000px;
+  margin: 0 auto;
+  min-height: calc(100vh - 50px);
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}

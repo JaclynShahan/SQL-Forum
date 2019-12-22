@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import ForumHeader from './Header/ForumHeader'
 import Post from './Compose/Post/Post'
 import Compose from './Compose/Compose'
+import "./Forum.css"
 
 class Forum extends Component {
   constructor () {
@@ -19,9 +20,9 @@ class Forum extends Component {
     const { newPost: posts, searchPosts } = this.props.post
 
     return (
-      <div>
+      <div className="AppParent">
         <ForumHeader />
-        <section>
+        <section className="AppContent">
           <Compose createPostFn={this.makePost} />
           {searchPosts.length > 0
             ? searchPosts.map(post => (
@@ -48,7 +49,7 @@ class Forum extends Component {
                 post={post}
               />
             ))}
-          {this.props.login.user.username ? '' : <Redirect to='/login' />}
+          
         </section>
       </div>
     )

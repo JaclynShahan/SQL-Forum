@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { Badge, Input, Button } from 'antd'
 import { connect } from 'react-redux'
 import { socket } from '../../socket'
+import "./Chat.css"
 
 class Chat extends Component {
   constructor () {
@@ -48,10 +49,8 @@ class Chat extends Component {
     console.log(this.props.login.user)
     return (
       <div>
-        <Badge count={messages.length} showZero>
-          <a href='#' />
-        </Badge>
-        <form onSubmit={this.sendMessage}>
+      
+        <form onSubmit={this.sendMessage} className="MessageNotify">
           Messages:
           {messages.map((msg, i) => (
             <p key={i}>
@@ -61,20 +60,22 @@ class Chat extends Component {
           {/* The element below will allow us to autoscroll to bottom of chat window... I think */}
           <div id='content' />
         </form>
-        <form>
+        <form className="ReplyForm">
           <Input
+          className="ReplyInput"
             onChange={e => this.setState({ reply: e.target.value })}
             value={this.state.reply} // this will allow the input to render as empty when state is emptied
             placeholder='Reply...'
           />
           <Button
+          className="ReplyButton"
             onClick={e => this.sendMessage(e)}
             disabled={this.state.reply.length < 1} // keep us from sending blank messages
           >
             SEND
           </Button>
         </form>
-        <form>
+        <form className="ListForm">
           People in Chat:
           <br />
           {this.distinct()}

@@ -1,0 +1,27 @@
+@import "~antd/dist/antd.css";
+.SearchParent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.SearchParent input {
+  border-radius: 21px;
+  border: 1px solid #2aabe2;
+  outline: none;
+  padding: 9px 34px 8px 12px;
+  font-size: 12px;
+}
+
+.SearchContent {
+  position: relative;
+}
+
+#SearchIcon {
+  font-size: 20px;
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  cursor: pointer;
+}

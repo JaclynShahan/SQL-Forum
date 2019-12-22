@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Input} from 'antd';
+import './Search.css'
 
 class Search extends Component {
     constructor() {
@@ -38,13 +39,15 @@ class Search extends Component {
     render() {
         const {searchStr} = this.state
         return (
-            <div>
+            <div className="SearchParent">
+            <div className="SearchContent">
             <Input.Search
             placeholder="Search Posts..."
             value={searchStr}
             onChange={e => this.setState({searchStr: e.target.value})}
             onSearch={() => this.onSearch()}
             />
+            </div>
             </div>
         )
     }

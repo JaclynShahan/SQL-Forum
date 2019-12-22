@@ -1,12 +1,12 @@
 @import '~antd/dist/antd.css';
-.Header__parent {
+.HeaderParent {
     width: 100%;
     height: 50px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
     background-color: #FFF;
   }
   
-  .Header__content {
+  .HeaderContent {
     width: 1000px;
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@
     padding: 0px 20px;
   }
   
-  .Header__company-info {
+  .HeaderCompanyInfo {
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -24,13 +24,13 @@
     margin-left: 50px;
   }
   
-  #Header__company-icon {
+  #HeaderCompanyIcon {
     font-size: 35px;
     color: #2aabe2;
     margin-right: 5px;
   }
   
-  .Header__profile {
+  .HeaderProfile {
     border: 1px solid #2aabe2;
     width: 35px;
     height: 35px;
@@ -42,18 +42,18 @@
     
   }
   
-  .Header__right {
+  .HeaderRight {
     display: flex;
     height: 100%;
     align-items: center;
   }
 
-  .sign_out {
+  .signOut {
       font-size: 12px;
       font-weight: bold;
    
   }
-  .Compose_button {
+  .ComposeButton {
     color: rgb(20, 20, 20);
     width: 6em;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -64,7 +64,7 @@
     transition: all 200ms ease-in;
     border-radius: .65em;
   }
-    .Compose_button:hover {
+    .ComposeButton:hover {
       background-color: rgb(47, 135, 194);
       color: black;
       border: none;
