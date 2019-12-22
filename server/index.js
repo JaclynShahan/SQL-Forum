@@ -3,18 +3,13 @@ const cors = require('cors')
 const massive = require('massive')
 const { json } = require('body-parser')
 const session = require('express-session')
-const axios = require('axios')
+const Axios = require('axios')
+const http = require('http')
 const socketIo = require('socket.io')
-const index = require("../routes/index")
+const index = require('../routes/index')
 require('dotenv').config()
 
 const controller = require(`${__dirname}/controller/controller`)
-const server = http.createServer(app);
-
-const io = socketIo(server);
-app.use(index(io));
-
-let messages = [];
 
 const app = express()
 app.use(cors())
@@ -26,32 +21,45 @@ app.use(
     saveUninitialized: true
   })
 )
-io.on("connection", socket => { // each socket that "connects", 
-        //is a unique connection from a individual's web browser
-    console.log("New Client Connected");
-    socket.emit('msgs', messages) // when user connects, automatically emits msgs
-    // socket.on("event", data => {
-        // you have data now
-        // you then do something with the data
-        // in here, you can also emit after the "something" has been done with data
-    // })
-    
-    socket.on('send_message', incomingMessage => {
-        // console.log('incumming msg: ', incomingMessage)
-        messages.push(incomingMessage);
-        socket.emit('msgs', messages)
+const server = http.createServer(app)
 
-    })
+const io = socketIo(server)
+app.use(index(io))
 
+let messages = []
+io.on('connection', socket => {
+  // each socket that "connects",
+  // is a unique connection from a individual's web browser
+  console.log('New Client Connected')
+  socket.emit('msgs', messages) // when user connects, automatically emits msgs
+  // socket.on("event", data => {
+  // you have data now
+  // you then do something with the data
+  // in here, you can also emit after the "something" has been done with data
+  // })
 
-    socket.on("disconnect", () => { // disconnect = user closes browser or loses web connection
-        console.log("Client Disconnected");
-    })
+  socket.on('send_message', incomingMessage => {
+    // console.log('incumming msg: ', incomingMessage)
+    messages.push(incomingMessage)
+    socket.emit('msgs', messages)
+  })
+
+  socket.on('disconnect', () => {
+    // disconnect = user closes browser or loses web connection
+    console.log('Client Disconnected')
+  })
 })
 app.get('/api/login', controller.loginUser)
 app.put('/api/logout', controller.logoutUser)
 const port = 3434
 
+const getPost = (req, res) => {
+  const dbInstance = req.app.get('db')
+  dbInstance.getPost().then(resp => res.status(200).send(resp))
+}
+app.get(`/api/getPost`, (req, res) => {
+  getPost(req, res)
+})
 
 app.post(`/api/verifyUser`, (req, res) => {
   console.log('request received')
@@ -65,14 +73,32 @@ app.post(`/api/verifyUser`, (req, res) => {
   }
 })
 app.post(`/api/createUser`, (req, res) => {
-    const { firstname, lastname, email, username, password} = req.body
-    console.log('Request received', firstname, lastname, email, username, password)
-    console.log(req.body)
-    const dbInstance = req.app.get('db')
-    dbInstance.createUser(firstname, lastname, email, username, password).then(() => {
+  const { firstname, lastname, email, username, password } = req.body
+  console.log(
+    'Request received',
+    firstname,
+    lastname,
+    email,
+    username,
+    password
+  )
+  console.log(req.body)
+  const dbInstance = req.app.get('db')
+  dbInstance
+    .createUser(firstname, lastname, email, username, password)
+    .then(() => {
       app.get(`/api/login`, controller.loginUser)
     })
+})
+app.post(`/api/createPost`, (req, res) => {
+  const { subject, text } = req.body
+  console.log('Request received', subject, text)
+  console.log(req.body)
+  const dbInstance = req.app.get('db')
+  dbInstance.createPost(subject, text).then(() => {
+    getPost(req, res)
   })
+})
 massive(process.env.connectionString).then(db => {
   app.set('db', db)
   app.listen(3434, () => {
