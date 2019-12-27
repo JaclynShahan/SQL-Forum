@@ -28,7 +28,7 @@ class Login extends Component {
   render () {
       console.log(this.props.login)
     return (
-      <div className="loginBackground">
+      <div >
         <div className='form-content'>
           <img
             className='imgcontainer'

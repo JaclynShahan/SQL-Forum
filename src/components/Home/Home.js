@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import './Home.css'
 
 class Home extends Component {
   constructor () {
@@ -9,10 +10,14 @@ class Home extends Component {
   }
 //Can make this screen an "about" page explaining what the site is
   render () {
-    return <div>
-        
-       HOME
-       </div>
+    return (
+  
+        <div className="bodyImage">
+            <header className="headerFont">**~WELCOME~**</header>
+        </div>
+       
+     
+    )
   }
 }
 

@@ -1,0 +1,19 @@
+.bodyImage {
+    background-image: url("https://fsb.zobj.net/crop.php?r=USSh-tXQNDMEtgXhLC5GeBUSvt6IJ2aQDKD2xu2hzxz9Rw3LpLH2Mb6AMNjCa9i_m8xh97dRib418Tzf9-xaZ9wHi7v6DzL5iBTYt-C-15ry-xKmFtUR9OY0b3qw8qIwLc52SG0t-Eb-lFeq");
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-attachment: scroll;
+    background-size: 100%;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.headerFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    color: whitesmoke;
+    margin-left: 25%;
+
+}
