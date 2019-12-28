@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import './Home.css'
 import { Button } from 'antd'
+import About from './About'
 
 class Home extends Component {
   constructor () {
@@ -14,10 +15,21 @@ class Home extends Component {
     return (
       <div className='bodyImage'>
         <header className='headerFont'>**~WELCOME~**</header>
+
         <section className='buttonSection'>
-          <button className='buttonSize aboutButton'>Learn More</button>
-          <button className='buttonSize'>Contact Us</button>
+          <About />
+          {/* <button className='buttonSize aboutButton'>Learn More</button> */}
+          <button className='buttonSize aboutButton'>Contact Us</button>
+          <button className='buttonSize'>Leave Feedback</button>
         </section>
+        <footer>
+          {' '}
+          <h1 className='quote'>
+            "Everyone is going to see things differently - and that's the way it
+            should be."
+          </h1>
+          <h5 className='quoteEnd'>-Bob Ross</h5>
+        </footer>
       </div>
     )
   }
