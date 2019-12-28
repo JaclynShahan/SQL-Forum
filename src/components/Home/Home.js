@@ -18,8 +18,8 @@ class Home extends Component {
 
         <section className='buttonSection'>
           <About />
-          {/* <button className='buttonSize aboutButton'>Learn More</button> */}
-          <button className='buttonSize aboutButton'>Contact Us</button>
+         
+          
           <button className='buttonSize'>Leave Feedback</button>
         </section>
         <footer>
