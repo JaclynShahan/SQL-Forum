@@ -24,9 +24,9 @@ class Contact extends Component {
   render () {
     const { TextArea } = Input
     let styles = {
-        fontSize: '40px',
-        fontWeight: 'bold',
-        fontFamily: 'fantasy'
+      fontSize: '40px',
+      fontWeight: 'bold',
+      fontFamily: 'fantasy'
     }
     return (
       <div>
@@ -42,49 +42,65 @@ class Contact extends Component {
           onCancel={() => this.props.setContactModal(false)}
           visible={this.props.home.showContactModal}
         >
-            <h1 className="headerTitle">LET'S TALK</h1>
-            <Divider/>
-          <header className="contactHeader">
+          <h1 className='headerTitle'>LET'S TALK</h1>
+          <Divider />
+          <header className='contactHeader'>
             Got a question? We'd love to hear from you. Send us a message and
             we'll respond as soon as possible.
           </header>
-          <span className="spans"required>Name:</span>
+          <span className='spans' required>
+            Name:
+          </span>
           <Input
             onChange={e => this.props.contactName(e)}
             value={this.props.home.name}
           />
-          <span className="spans"required>Email Address:</span>
+          <span className='spans' required>
+            Email Address:
+          </span>
           <Input
             onChange={e => this.props.contactEmail(e)}
             value={this.props.home.email}
           />
-          <span className="spans">Subject:</span>
+          <span className='spans'>Subject:</span>
           <Input
             onChange={e => this.props.contactSubject(e)}
             value={this.props.home.subject}
           />
-          <span className="spans">Message:</span>
+          <span className='spans'>Message:</span>
           <TextArea
             rows={6}
             onChange={e => this.props.contactMessage(e)}
             value={this.props.home.message}
           />
-          <section className="iconSection">
-            <button className="icons">
-              <Icon style={{ fontSize: '25px'}} type="facebook" theme="filled"/>
-              </button>
-              <button className="icons">
-              <Icon  style={{fontSize: '25px'}} type="twitter"/>
-              </button>
-              <button className="icons">
-              <Icon style={{fontSize: '25px'}} type="instagram" theme="filled"/>
-             </button>
-             <button className="icons">
-              <Icon style={{fontSize: '25px'}} type="google-plus" />
-              </button>
-              <button className="icons">
-              <Icon style={{fontSize: '25px'}} type="linkedin" theme="filled"/>
-              </button>
+          <section className='iconSection'>
+            <button className='icons'>
+              <Icon
+                style={{ fontSize: '25px' }}
+                type='facebook'
+                theme='filled'
+              />
+            </button>
+            <button className='icons'>
+              <Icon style={{ fontSize: '25px' }} type='twitter' />
+            </button>
+            <button className='icons'>
+              <Icon
+                style={{ fontSize: '25px' }}
+                type='instagram'
+                theme='filled'
+              />
+            </button>
+            <button className='icons'>
+              <Icon style={{ fontSize: '25px' }} type='google-plus' />
+            </button>
+            <button className='icons'>
+              <Icon
+                style={{ fontSize: '25px' }}
+                type='linkedin'
+                theme='filled'
+              />
+            </button>
           </section>
         </Modal>
       </div>
