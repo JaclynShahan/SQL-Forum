@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import './Home.css'
 import { Button } from 'antd'
 import About from './About'
+import Contact from './Contact'
 
 class Home extends Component {
   constructor () {
@@ -18,7 +19,7 @@ class Home extends Component {
 
         <section className='buttonSection'>
           <About />
-         
+        <Contact />
           
           <button className='buttonSize'>Leave Feedback</button>
         </section>

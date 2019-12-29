@@ -69,3 +69,35 @@ margin-bottom: 40px;
    color: whitesmoke;
    opacity: 0.80;
 }
+
+.contactHeader {
+    text-align: center;
+    font-family: fantasy;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.icons {
+    border-radius: 50px;
+    border: 1px solid black;
+   height: 50px;
+   width: 50px;
+   margin: 5px 15px 5px 15px;
+}
+
+.iconSection {
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.spans {
+    font-weight: bold;
+    font-size: 15px;
+    font-family: fantasy;
+}
+.headerTitle {
+    font-weight: bold;
+    font-size: 40px;
+    font-family: fantasy;
+    text-align: center;
+}

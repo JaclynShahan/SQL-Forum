@@ -53,6 +53,12 @@ app.get('/api/login', controller.loginUser)
 app.put('/api/logout', controller.logoutUser)
 const port = 3434
 
+const send = require('gmail-send')({
+  user: process.env.username,
+  pass: process.env.password,
+  to: 'shahanjaclyn@gmail.com'
+})
+
 const getPost = (req, res) => {
   const dbInstance = req.app.get('db')
   dbInstance.getPost().then(resp => res.status(200).send(resp))
@@ -61,6 +67,21 @@ app.get(`/api/getPost`, (req, res) => {
   getPost(req, res)
 })
 
+app.post(`/api/sendMessage`, (req, res) => {
+  send(
+    {
+      subject: req.body.subject,
+      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${
+        req.body.message
+      }`
+    },
+    function (err, res) {
+      console.log('* ERROR send() callback returned: err:', err, '; res:', res)
+    }
+  )
+  console.log('Working')
+  res.status(200).json((message = 'working'))
+})
 app.post(`/api/verifyUser`, (req, res) => {
   console.log('request received')
   const { username, password } = req.body
