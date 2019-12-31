@@ -4,7 +4,8 @@ const initialState = {
   email: '',
   subject: '',
   message: '',
-  showContactModal: false
+  showContactModal: false,
+  showFeedbackDrawer: false,
 }
 
 export default function reducer (state = initialState, action) {
@@ -22,6 +23,9 @@ export default function reducer (state = initialState, action) {
       return {...tempState, message: action.payload}
       case 'CONTACT_MODAL' :
       return {...tempState, showContactModal: action.payload}
+      case 'FEEDBACK_DRAWER':
+      return {...tempState, showFeedbackDrawer: action.payload}
+
   }
   return tempState
 }
