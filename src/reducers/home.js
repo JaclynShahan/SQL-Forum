@@ -5,8 +5,7 @@ const initialState = {
   subject: '',
   message: '',
   showContactModal: false,
-  showFeedbackModal: false,
-  questionOne: "",
+
 
 }
 
@@ -25,8 +24,7 @@ export default function reducer (state = initialState, action) {
       return {...tempState, message: action.payload}
       case 'CONTACT_MODAL' :
       return {...tempState, showContactModal: action.payload}
-      case 'FEEDBACK_MODAL':
-      return {...tempState, showFeedbackModal: action.payload}
+     
       
 
   }

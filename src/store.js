@@ -7,6 +7,7 @@ import addUser from './reducers/addUser';
 import post from './reducers/post';
 import edit from './reducers/edit';
 import home from './reducers/home';
+import feedback from './reducers/feedback'
 
 export default createStore(
   combineReducers({
@@ -15,7 +16,8 @@ export default createStore(
     addUser,
     edit,
     post,
-    home
+    home,
+    feedback
   }),
   applyMiddleware(promiseMiddleware)
 )

@@ -101,3 +101,10 @@ margin-bottom: 40px;
     font-family: fantasy;
     text-align: center;
 }
+
+.feedbackHeaders {
+    text-align: left;
+    font-family: fantasy;
+    font-size: 20px;
+    font-weight: bolder;
+}
