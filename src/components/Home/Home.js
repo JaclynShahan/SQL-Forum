@@ -5,6 +5,7 @@ import './Home.css'
 import { Button } from 'antd'
 import About from './About'
 import Contact from './Contact'
+import Feedback from './Feedback'
 
 class Home extends Component {
   constructor () {
@@ -20,8 +21,8 @@ class Home extends Component {
         <section className='buttonSection'>
           <About />
         <Contact />
-          
-          <button className='buttonSize'>Leave Feedback</button>
+         <Feedback /> 
+         
         </section>
         <footer>
           {' '}
