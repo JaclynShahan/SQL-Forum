@@ -40,14 +40,16 @@ class Feedback extends Component {
             striving to make our website better.
           </header>
           <Divider />
-          <span>Name:</span>
+          <span className="feedbackHeaders">Name:</span>
           <Input
-            placeholder='optional'
+            placeholder='Optional'
+            className="feedbackInputs"
             onChange={e => this.props.setFeedbackName(e)}
             value={this.props.feedback.feedbackName}
           />
-          <span>Email:</span>
+          <span className="feedbackHeaders">Email:</span>
           <Input
+            className="feedbackInputs"
             onChange={e => this.props.setFeedbackEmail(e)}
             value={this.props.feedback.feedbackEmail}
           />

@@ -107,4 +107,9 @@ margin-bottom: 40px;
     font-family: fantasy;
     font-size: 20px;
     font-weight: bolder;
+    margin: 5px 10px 5px 10px;
+}
+
+.feedbackInputs {
+    width: 150px;
 }
