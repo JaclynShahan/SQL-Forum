@@ -9,7 +9,9 @@ class Feedback extends Component {
     this.state = {}
   }
   // need to figure out how to conditionally render my "other" input
-  sendFeedback = e => {}
+  sendFeedback = e => {
+    Axios.post(`/api/sendFeedback`)
+  }
   render () {
     const radioStyle = {
       display: 'block',
@@ -38,6 +40,17 @@ class Feedback extends Component {
             striving to make our website better.
           </header>
           <Divider />
+          <span>Name:</span>
+          <Input
+            placeholder='optional'
+            onChange={e => this.props.setFeedbackName(e)}
+            value={this.props.feedback.feedbackName}
+          />
+          <span>Email:</span>
+          <Input
+            onChange={e => this.props.setFeedbackEmail(e)}
+            value={this.props.feedback.feedbackEmail}
+          />
           <Radio.Group
             onChange={e => this.props.setQuestionOne(e)}
             value={this.props.feedback.questionOne}
@@ -184,6 +197,18 @@ const mapDispatchToProps = dispatch => ({
   setQuestionFour (e) {
     dispatch({
       type: 'QUESTION_FOUR',
+      payload: e.target.value
+    })
+  },
+  setFeedbackName (e) {
+    dispatch({
+      type: 'FEEDBACK_NAME',
+      payload: e.target.value
+    })
+  },
+  setFeedbackEmail (e) {
+    dispatch({
+      type: 'FEEDBACK_EMAIL',
       payload: e.target.value
     })
   }

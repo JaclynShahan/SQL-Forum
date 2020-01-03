@@ -35,7 +35,6 @@ class LoginDrawer extends Component {
             </span>
            <Drawer
            className="signupDrawer"
-           placement="right"
            onOk={this.onSave}
            title="Create an Account"
         //    closable={false}

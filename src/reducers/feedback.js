@@ -5,7 +5,9 @@ const initialState = {
   questionThree: '',
   feedbackLike: '',
   feedbackDislike: '',
-  questionFour: ''
+  questionFour: '',
+  feedbackName: '',
+  feedbackEmail: ''
 }
 
 export default function reducer (state = initialState, action) {
@@ -25,6 +27,10 @@ export default function reducer (state = initialState, action) {
       return { ...tempState, feedbackDislike: action.payload }
     case 'QUESTION_FOUR':
       return { ...tempState, questionFour: action.payload }
+    case 'FEEDBACK_NAME':
+      return { ...tempState, feedbackName: action.payload }
+    case 'FEEDBACK_EMAIL':
+      return { ...tempState, feedbackEmail: action.payload }
   }
   return tempState
 }
