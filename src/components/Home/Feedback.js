@@ -10,7 +10,20 @@ class Feedback extends Component {
   }
   // need to figure out how to conditionally render my "other" input
   sendFeedback = e => {
-    Axios.post(`/api/sendFeedback`)
+    Axios.post(`/api/sendFeedback`, {
+       questionOne: this.props.feedback.questionOne,
+       questionTwo: this.props.feedback.questionTwo,
+       questionThree: this.props.feedback.questionThree,
+       questionFour: this.props.feedback.questionFour,
+       feedbackLike: this.props.feedback.feedbackLike,
+       feedbackDislike: this.props.feedback.feedbackDislike,
+       feedbackName: this.props.feedback.feedbackName,
+       feedbackEmail: this.props.feedback.feedbackEmail 
+    }).then(resp => {
+        e.preventDefault()
+        this.props.setFeedbackModal(false)
+        console.log(resp)
+    })
   }
   render () {
     const radioStyle = {
@@ -20,7 +33,7 @@ class Feedback extends Component {
       fontFamily: 'fantasy'
     }
     return (
-      <div>
+      <div  >
         <button
           onClick={() => this.props.setFeedbackModal(true)}
           className='buttonSize'
@@ -28,6 +41,7 @@ class Feedback extends Component {
           Leave Feedback
         </button>
         <Modal
+         className="modalWidth"
           onOk={this.sendFeedback}
           okText='Send'
           onCancel={() => this.props.setFeedbackModal(false)}

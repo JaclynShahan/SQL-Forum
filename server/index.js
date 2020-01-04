@@ -82,6 +82,27 @@ app.post(`/api/sendMessage`, (req, res) => {
   console.log('Working')
   res.status(200).json((message = 'working'))
 })
+app.post(`/api/sendFeedback`, (req, res) => {
+  send(
+    {
+      subject: `Feedback from: ${req.body.feedbackEmail}`,
+      text: `Name: ${req.body.feedbackName} \nEmail: ${
+        req.body.feedbackEmail
+      } \nQuestion One: ${req.body.questionOne}
+      \nQuestion Two: ${req.body.questionTwo} \nQuestion Three: ${
+  req.body.questionThree
+} \nLikes: ${req.body.feedbackLike}
+      \nDislikes: ${req.body.feedbackDislike} \nQuestion Four: ${
+  req.body.questionFour
+}`
+    },
+    function (err, res) {
+      console.log('* ERROR send() callback returned: err:', err, '; res:', res)
+    }
+  )
+  console.log('Working')
+  res.status(200).json((message = 'working'))
+})
 app.post(`/api/verifyUser`, (req, res) => {
   console.log('request received')
   const { username, password } = req.body
