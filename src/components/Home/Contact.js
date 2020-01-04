@@ -74,6 +74,7 @@ class Contact extends Component {
             value={this.props.home.message}
           />
           <section className='iconSection'>
+            <a href="www.facebook.com" target="_blank">
             <button className='icons'>
               <Icon
                 style={{ fontSize: '25px' }}
@@ -81,9 +82,13 @@ class Contact extends Component {
                 theme='filled'
               />
             </button>
+            </a>
+            <a href="www.twitter.com" target="_blank"> 
             <button className='icons'>
               <Icon style={{ fontSize: '25px' }} type='twitter' />
             </button>
+            </a>
+            <a href="www.instagram.com" target="_blank">
             <button className='icons'>
               <Icon
                 style={{ fontSize: '25px' }}
@@ -91,9 +96,13 @@ class Contact extends Component {
                 theme='filled'
               />
             </button>
+            </a>
+            <a href="www.google.com" target="_blank">
             <button className='icons'>
               <Icon style={{ fontSize: '25px' }} type='google-plus' />
             </button>
+            </a>
+            <a href="www.linkedin.com" target="_blank">
             <button className='icons'>
               <Icon
                 style={{ fontSize: '25px' }}
@@ -101,6 +110,7 @@ class Contact extends Component {
                 theme='filled'
               />
             </button>
+            </a>
           </section>
         </Modal>
       </div>
