@@ -8,37 +8,31 @@ class Compose extends Component {
     constructor () {
         super()
         this.state = {
-            subject: "",
-            text: ""
+         
         }
-        this.makePost = this.makePost.bind(this)
+       // this.makePost = this.makePost.bind(this)
     }
-    updateSubject (subject) {
-        this.setState({subject})
-    }
-    updateText (text) {
-        this.setState({text})
-    }
-    clearField = () => {
-        this.setState({
-            subject: "",
-            text: ""
-        })
-    }
+
+    // clearField = () => {
+    //     this.setState({
+    //         subject: "",
+    //         text: ""
+    //     })
+    // }
     getPost = e => {
         e.preventDefault()
-        Axios.get(`/api/getPosts?text=${this.state.text}`).then(resp => {
+        Axios.get(`/api/getPosts?text=${this.props.post.postText}&subject=${this.props.post.postSubject}`).then(resp => {
           console.log(resp)
         })
     
-        this.clearField()
+        // this.clearField()
       }
 
   makePost = e => {
     e.preventDefault()
     Axios.post('/api/createPost', {
-      text: this.state.text,
-      subject: this.state.subject,
+      text: this.props.post.postText,
+      subject: this.props.post.postSubject,
       comments: [],
       likes: [],
       mehs: [],
@@ -51,7 +45,7 @@ class Compose extends Component {
     this.clearField()
   }
     render() {
-        const {text, subject} = this.state;
+       
         return(
             <section className="ComposeParent">
             <div className="ComposeTop">
@@ -61,15 +55,15 @@ class Compose extends Component {
             <Input
             className="SubjectInput"
             placeholder='Subject'
-            value={subject}
-            onChange={e => this.updateSubject(e.target.value)}
+            value={this.props.post.postSubject}
+            onChange={e => this.updateSubject(e)}
           />
 
           <Input
           className="ComposeInput"
             placeholder="What's on your mind?"
-            value={text}
-            onChange={e => this.updateText(e.target.value)}
+            value={this.props.post.postText}
+            onChange={e => this.props.updateText(e)}
           />
             </div>
             <div className="ComposeButtom">
@@ -91,6 +85,18 @@ const mapDispatchToProps = dispatch => ({
         dispatch({
             type: 'ADD_POST',
             payload: newPost
+        })
+    },
+    updateSubject (e) {
+        dispatch({
+            type: 'POST_SUBJECT',
+            payload: e.target.value
+        })
+    },
+    updateText (e) {
+        dispatch({
+            type: 'POST_TEXT',
+            payload: e.target.value
         })
     }
 })

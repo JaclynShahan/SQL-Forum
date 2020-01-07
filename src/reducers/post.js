@@ -3,7 +3,9 @@ const initialState = {
    selectedPost: {},
    newPost: [],
    editModal: false,
-   commentText: ""
+   commentText: "",
+   postText: "",
+   postSubject: ""
 }
 
 export default function reducer (state = initialState, action) {
@@ -24,6 +26,11 @@ export default function reducer (state = initialState, action) {
     return {...tempState, editModal: action.payload}
     case 'COMMENT_TEXT' :
     return {...tempState, commentText: action.payload}
+    case 'POST_TEXT' :
+    return {...tempState, postText: action.payload}
+    case 'POST_SUBJECT' :
+    return {...tempState, postSubject: action.payload}
     }
+    
     return tempState
 }

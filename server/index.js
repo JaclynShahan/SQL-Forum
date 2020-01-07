@@ -86,15 +86,15 @@ app.post(`/api/sendFeedback`, (req, res) => {
   send(
     {
       subject: `Feedback from: ${req.body.feedbackEmail}`,
-      text: `Name: ${req.body.feedbackName} \nEmail: ${
+      text: `Name: ${req.body.feedbackName}\nEmail: ${
         req.body.feedbackEmail
-      } \nQuestion One: ${req.body.questionOne}
-      \nQuestion Two: ${req.body.questionTwo} \nQuestion Three: ${
-  req.body.questionThree
-} \nLikes: ${req.body.feedbackLike}
-      \nDislikes: ${req.body.feedbackDislike} \nQuestion Four: ${
-  req.body.questionFour
-}`
+      }\nQuestion One: ${req.body.questionOne}\nQuestion Two: ${
+        req.body.questionTwo
+      }\nQuestion Three: ${req.body.questionThree}\nLikes: ${
+        req.body.feedbackLike
+      }\nDislikes: ${req.body.feedbackDislike}\nQuestion Four: ${
+        req.body.questionFour
+      }`
     },
     function (err, res) {
       console.log('* ERROR send() callback returned: err:', err, '; res:', res)
@@ -133,11 +133,11 @@ app.post(`/api/createUser`, (req, res) => {
     })
 })
 app.post(`/api/createPost`, (req, res) => {
-  const { subject, text } = req.body
-  console.log('Request received', subject, text)
+  const { postSubject, postText } = req.body
+  console.log('Request received', postSubject, postText)
   console.log(req.body)
   const dbInstance = req.app.get('db')
-  dbInstance.createPost(subject, text).then(() => {
+  dbInstance.createPost(postSubject, postText).then(() => {
     getPost(req, res)
   })
 })
