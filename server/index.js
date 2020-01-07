@@ -71,9 +71,9 @@ app.post(`/api/sendMessage`, (req, res) => {
   send(
     {
       subject: req.body.subject,
-      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${
+      text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' +
         req.body.message
-      }`
+      
     },
     function (err, res) {
       console.log('* ERROR send() callback returned: err:', err, '; res:', res)
@@ -85,16 +85,16 @@ app.post(`/api/sendMessage`, (req, res) => {
 app.post(`/api/sendFeedback`, (req, res) => {
   send(
     {
-      subject: `Feedback from: ${req.body.feedbackEmail}`,
-      text: `Name: ${req.body.feedbackName}\nEmail: ${
+      subject: 'Feedback from: ' + req.body.feedbackEmail + ' ' + req.body.feedbackName,
+      text: 'Name: ' + req.body.feedbackName + '\nEmail: ' + 
         req.body.feedbackEmail
-      }\nQuestion One: ${req.body.questionOne}\nQuestion Two: ${
+       + '\nQuestion One: ' + req.body.questionOne + '\nQuestion Two: ' + 
         req.body.questionTwo
-      }\nQuestion Three: ${req.body.questionThree}\nLikes: ${
+       + '\nQuestion Three: ' + req.body.questionThree + '\nLikes: ' + 
         req.body.feedbackLike
-      }\nDislikes: ${req.body.feedbackDislike}\nQuestion Four: ${
+      + '\nDislikes: ' + req.body.feedbackDislike + '\nQuestion Four: ' + 
         req.body.questionFour
-      }`
+      
     },
     function (err, res) {
       console.log('* ERROR send() callback returned: err:', err, '; res:', res)
