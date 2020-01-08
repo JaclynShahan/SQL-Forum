@@ -74,19 +74,19 @@ class Feedback extends Component {
             <h3 className='feedbackHeaders'>
               How did you hear about our website?
             </h3>
-            <Radio style={radioStyle} value={1}>
+            <Radio style={radioStyle} value={"Social Media"}>
               Social Media
             </Radio>
-            <Radio style={radioStyle} value={2}>
+            <Radio style={radioStyle} value={"Advertising"}>
               Advertising
             </Radio>
-            <Radio style={radioStyle} value={3}>
+            <Radio style={radioStyle} value={"Search Engine"}>
               Search Engine
             </Radio>
-            <Radio style={radioStyle} value={4}>
+            <Radio style={radioStyle} value={"Friend"}>
               Friend
             </Radio>
-            <Radio style={radioStyle} value={5}>
+            <Radio style={radioStyle} value={"Other"}>
               Other: {this.props.feedback.questionOne === 5 ? <Input /> : null}{' '}
             </Radio>
           </Radio.Group>
@@ -96,16 +96,16 @@ class Feedback extends Component {
             value={this.props.feedback.questionTwo}
           >
             <h3 className='feedbackHeaders'>What browser do you use?</h3>
-            <Radio style={radioStyle} value={1}>
+            <Radio style={radioStyle} value={"Google Chrome"}>
               Google Chrome
             </Radio>
-            <Radio style={radioStyle} value={2}>
+            <Radio style={radioStyle} value={"Internet Explorer"}>
               Internet Explorer
             </Radio>
-            <Radio style={radioStyle} value={3}>
+            <Radio style={radioStyle} value={"Firefox"}>
               Firefox
             </Radio>
-            <Radio style={radioStyle} value={4}>
+            <Radio style={radioStyle} value={"Safari"}>
               Safari
             </Radio>
           </Radio.Group>
@@ -117,19 +117,19 @@ class Feedback extends Component {
             <h3 className='feedbackHeaders'>
               How satisfied are you with this website?
             </h3>
-            <Radio style={radioStyle} value={1}>
+            <Radio style={radioStyle} value={"Very Satisfied"}>
               Very Satisfied
             </Radio>
-            <Radio style={radioStyle} value={2}>
+            <Radio style={radioStyle} value={"Satisfied"}>
               Satisfied
             </Radio>
-            <Radio style={radioStyle} value={3}>
+            <Radio style={radioStyle} value={"Neutral"}>
               Neutral
             </Radio>
-            <Radio style={radioStyle} value={4}>
+            <Radio style={radioStyle} value={"Unsatisfied"}>
               Unsatisfied
             </Radio>
-            <Radio style={radioStyle} value={5}>
+            <Radio style={radioStyle} value={"Very Unsatisfied"}>
               Very Unsatisfied
             </Radio>
           </Radio.Group>
@@ -159,9 +159,9 @@ class Feedback extends Component {
             <h3 className='feedbackHeaders'>
               Do you plan on returning to our site again?
             </h3>
-            <Radio value={1}>Yes</Radio>
-            <Radio value={2}>No</Radio>
-            <Radio value={3}>Unsure</Radio>
+            <Radio value={"Yes"}>Yes</Radio>
+            <Radio value={"No"}>No</Radio>
+            <Radio value={"Unsure"}>Unsure</Radio>
           </Radio.Group>
         </Modal>
       </div>

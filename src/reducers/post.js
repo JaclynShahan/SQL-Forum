@@ -5,7 +5,8 @@ const initialState = {
    editModal: false,
    commentText: "",
    postText: "",
-   postSubject: ""
+   postSubject: "",
+   postId: ''
 }
 
 export default function reducer (state = initialState, action) {

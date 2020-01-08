@@ -31,8 +31,8 @@ class Compose extends Component {
   makePost = e => {
     e.preventDefault()
     Axios.post('/api/createPost', {
-      text: this.props.post.postText,
-      subject: this.props.post.postSubject,
+      postText: this.props.post.postText,
+      postSubject: this.props.post.postSubject,
       comments: [],
       likes: [],
       mehs: [],
@@ -42,7 +42,7 @@ class Compose extends Component {
       this.props.addPost(resp.data)
       console.log(resp)
     })
-    this.clearField()
+    //this.clearField()
   }
     render() {
        
@@ -56,7 +56,7 @@ class Compose extends Component {
             className="SubjectInput"
             placeholder='Subject'
             value={this.props.post.postSubject}
-            onChange={e => this.updateSubject(e)}
+            onChange={e => this.props.updateSubject(e)}
           />
 
           <Input

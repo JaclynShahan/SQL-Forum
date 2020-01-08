@@ -103,7 +103,7 @@ class Post extends Component {
     const likes = selectedPost.likes || []
 
     const { editing, showMasterMenu } = this.state
-    const { text, deletePostFn, id, updatePostFn } = this.props
+    const { deletePostFn, id, updatePostFn } = this.props
     console.log(this.state)
     console.log(this.props)
     return (
@@ -122,19 +122,19 @@ class Post extends Component {
             <Avatar style={{ backgroundColor: '#87d068' }} icon='user' />
           </div>
 
-          <span>{this.props.subject}</span>
+          <span>{this.props.post.postSubject}</span>
         </div>
 
         <div>
           {editing ? (
             <EditPost
-              text={text}
+              //text={text}
               id={id}
               hideEdit={this.hideEdit}
               updatePostFn={updatePostFn}
             />
           ) : (
-            <span>{text}</span>
+            <span>{this.props.post.postText}</span>
           )}
         </div>
         <div className='Post__user-controls'>
